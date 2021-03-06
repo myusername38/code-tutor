@@ -1,0 +1,67 @@
+@import '../../../vars.scss';
+
+
+$section-height: 400px;
+$header-height: 60px;
+
+.main {
+  background-color: white;
+  text-align: center;
+}
+
+.home {
+  height: 100vh;
+  background-image: url('../../../assets/pictures/landing_image.jpg');
+  background-position : center bottom;
+  background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.section {
+  min-height: $section-height;
+}
+
+.icon-section {
+  background-color: #EAD7D1;
+  .icon-picture {
+    height: 80px;
+  }
+}
+.about-us {
+  background-color: #4E4D5C;
+  color: white;
+}
+
+.text-box-width {
+  width: 100%;
+  max-width: 400px;
+}
+
+.picture-half-size {
+  max-width: 400px;
+}
+
+.our-logo {
+  width: 200px;
+  height: $header-height;
+  background-color: white;
+}
+
+.links {
+  background-color: rgba(#FFF8F8, .9);
+  height: $header-height;
+  border-radius: 4px;
+  text-decoration: underline;
+  max-width: 400px;
+  button {
+    height: $header-height;
+  }
+}
+
+.login-button {
+  background-color: white;
+  color: #FB4568;
+  height: 50px;
+  width: 100px;
+  font-size: 18px;
+}

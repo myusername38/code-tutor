@@ -1,0 +1,11 @@
+<div
+      class="app-ace-editor"
+      #editor
+      style="width: 800px;height: 500px;"
+    ></div>
+<button (click)="runCode()">Run</button>
+<div class="console">
+  <div *ngFor="let message of consoleMessages">
+      <pre [innerHTML]="message"></pre>
+  </div>
+</div>

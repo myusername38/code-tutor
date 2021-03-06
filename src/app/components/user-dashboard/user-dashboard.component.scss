@@ -1,0 +1,18 @@
+@import '../../../vars.scss';
+
+.card {
+  background-color: $primary;
+  color: white;
+  border-radius: 4px;
+}
+
+.middle {
+  @media screen and (min-width: $screen-medium){
+    padding-left: $spacing-sm;
+    padding-right: $spacing-sm;
+  }
+}
+
+.user-dashboard {
+  max-width: 1800px;
+}
