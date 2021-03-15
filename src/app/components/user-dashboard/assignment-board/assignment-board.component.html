@@ -1,0 +1,19 @@
+<div class="w-100 assignment-box pt-sm" fxLayout="column">
+  <div class="assignment-header w-100 pl-md pr-sm mb-sm" fxLayout="row" fxLayoutAlign="space-between center">
+    <h1 class="white mt-0 mb-0">Assignments</h1>
+    <button mat-icon-button aria-label="More assignment Options">
+      <mat-icon class="white">more_vert</mat-icon>
+    </button>
+  </div>
+  <div class="assignments w-100" fxLayout="column">
+    <div class="assignment {{ assignment.status }} w-100 white pl-sm pr-sm mb-sm" *ngFor="let assignment of assignments" fxFlex="row" fxLayoutAlign="start center">
+      <mat-icon class="left-icon mr-sm" *ngIf="assignment.status !== 'not-started'">code</mat-icon>
+      <mat-icon class="left-icon mr-sm" *ngIf="assignment.status === 'not-started'">code_off</mat-icon>
+      <p class="mt-0 mb-0 ml-xs assignment-title">{{ assignment.title }}</p>
+      <div class="right-icon-box" fxLayoutAlign="center center">
+        <mat-icon class="check" *ngIf="assignment.status === 'complete'">check</mat-icon>
+        <button mat-button class="start-program action-button mt-sm mb-sm mr-sm" *ngIf="assignment.status === 'in-progress'"><p class="m-auto">Work</p></button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,20 @@
 @import '../../../vars.scss';
 
+// Color Pallet for the dashboard
+$color_1: #0a0c16;
+$color_2: #59155b;
+$color_3: #0b0755;
+$color_4: #f91628;
+$color_5: #580718;
+$color_6: #0816ac;
+$color_7: #b51144;
+$color_8: #d9268a;
+
+$banner-height: 72px;
+$border-size: 1px;
+$user-picture-height: 50px;
+$dashboard-item-max-width: 400px;
+
 .card {
   background-color: $primary;
   color: white;
@@ -13,6 +28,75 @@
   }
 }
 
+.banner {
+  // background: rgb(22,25,40);
+  background: rgb(27,30,47);
+  background: linear-gradient(90deg, rgba(27,30,47, 1) 0%, rgba(41,46,67,1) 75%);
+  border-radius: 8px;
+  -webkit-box-shadow: -7px 6px 10px 1px rgba(0,0,0,0.4);
+  box-shadow: -7px 6px 10px 1px rgba(0,0,0,0.4);
+}
+
+.main {
+  background: rgb(42,48,66);
+  background: linear-gradient(90deg, rgba(42,48,66,1) 0%, rgba(90,99,127,1) 89%);
+ // background: rgb(90,99,127);
+// background: radial-gradient(circle, rgba(90,99,127,1) 0%, rgba(42,48,66,1) 86%);
+  min-height: 100vh;
+}
+
 .user-dashboard {
-  max-width: 1800px;
+  max-width: 1200px;
+}
+
+.user-picture {
+  height: $user-picture-height;
+  width: auto;
+  border-radius: 20px;
+}
+
+.action-button {
+  background: rgb(255,47,90);
+  background: linear-gradient(109deg, rgba(255,47,90,1) 0%, rgba(255,127,129,1) 100%);
+}
+
+.tutor-meeting {
+  color: white;
+}
+
+.tile-background {
+  background: rgb(23,26,42);
+  background: linear-gradient(52deg, rgba(23,26,42,1) 0%, rgba(39,44,67,1) 100%);
+  border-radius: 8px;
+  max-width: $dashboard-item-max-width;
+  -webkit-box-shadow: -7px 6px 10px 1px rgba(0,0,0,0.4);
+  box-shadow: -7px 6px 10px 1px rgba(0,0,0,0.4);
+  color: white;
+}
+
+.banner-box {
+  border-right: $border-size solid #3a3d51;
+  height: $banner-height;
+}
+
+.tutor-box {
+  width: 240px;
+}
+
+.tutor-picture {
+  height: 175px;
+  width: auto;
+  border-radius: 12px;
+}
+
+.action-box {
+  border-right: $border-size solid #3a3d51;
+}
+
+.expand-user-button {
+  margin-top: 4px;
+}
+
+.user-info {
+
 }

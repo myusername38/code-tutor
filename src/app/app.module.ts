@@ -14,7 +14,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatBadgeModule } from '@angular/material/badge';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EditorComponent } from './components/editor/editor.component';
@@ -30,6 +34,11 @@ import { PasswordResetComponent } from './components/password-reset/password-res
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AssignmentBoardComponent } from './components/user-dashboard/assignment-board/assignment-board.component';
+import { InfoTileComponent } from './components/user-dashboard/info-tile/info-tile.component';
+import { TutorDashboardComponent } from './components/tutor-dashboard/tutor-dashboard.component';
+import { PackagesComponent } from './components/packages/packages.component';
+import { CourseTileComponent } from './components/course-tile/course-tile.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +51,12 @@ import { RegisterComponent } from './components/register/register.component';
     PasswordResetComponent,
     VerifyEmailComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AssignmentBoardComponent,
+    InfoTileComponent,
+    TutorDashboardComponent,
+    PackagesComponent,
+    CourseTileComponent
   ],
   imports: [
     BrowserModule,
@@ -56,8 +70,12 @@ import { RegisterComponent } from './components/register/register.component';
     MatDialogModule,
     MatProgressSpinnerModule,
     MatInputModule,
+    MatMenuModule,
+    MatPaginatorModule,
     MatSnackBarModule,
+    MatTableModule,
     MatIconModule,
+    MatBadgeModule,
     ReactiveFormsModule,
     FormsModule,
     FlexLayoutModule,

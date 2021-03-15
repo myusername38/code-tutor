@@ -1,28 +1,31 @@
-<div class="main" fxLayout="column">
-  <div class="home w-100" fxLayout="column" fxLayoutAlign="start center">
-    <div class="header w-100 pl-md pr-md mt-md" fxLayout="row" fxLayoutAlign="space-between center">
-      <div class="our-logo" fxLayout="row" fxLayoutAlign="center center">
-        <p class="m-auto">Our Logo</p>
-      </div>
-      <div class="links w-100" fxLayout="row" fxLayoutAlign="space-around center">
-        <button mat-button>About</button>
-        <button mat-button>Our Process</button>
-        <button mat-button>Our Tutors</button>
-      </div>
-      <div class="login">
-        <button mat-button class="login-button" (click)="login()">Login</button>
-      </div>
+<div class="main w-100" fxLayout="column">
+  <div class="banner top w-100 white pl-sm pr-sm" fxLayout="row" fxLayoutAlign="space-between center" *ngIf="promotion">
+    <div class="placeholder"></div>
+    <p class="mb-0 mt-0">Click Here for 50% off!</p>
+    <button mat-icon-button (click)="togglePromotion()" aria-label="Close Banner">
+      <mat-icon class="white" matBadgeColor="warn">cancel</mat-icon>
+    </button>
+  </div>
+  <div class="header w-100 pl-md pr-md" [class.promotion-present]="promotion" fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="our-logo" fxLayout="row" fxLayoutAlign="center center">
+      <p class="m-auto">Our Logo</p>
     </div>
-    <div class="contents">
-
+    <div class="links w-100" fxLayout="row" fxLayoutAlign="space-around center">
+      <button mat-button>Our Process</button>
+      <button mat-button>Our Tutors</button>
+      <button mat-button>Why Us</button>
+    </div>
+    <div class="login">
+      <button mat-button class="login-button" (click)="login()">Login</button>
     </div>
   </div>
-  <div class="our-process section w-100 p-sm" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="space-around center">
-    <div class="our-process-text text-box-width">
-      <h1 class="mlr-auto">Our Process</h1>
-      <p class="text-center w-100">This is some bullshit text</p>
+  <div class="contents">
+
+  </div>
+  <div class="section w-100 p-sm" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="space-around center">
+    <div class="promotion-card" fxLayoutAlign="column">
+
     </div>
-    <img class="picture-half-size" src="../../../assets/pictures/laptop_image.jpg" alt="Picture of a computer mouse">
   </div>
   <div class="icon-section w-100" fxLayout="column" fxLayoutAlign="center center">
     <div class="p-md limit-width w-100 mlr-auto" fxLayout="column" fxLayout.gt-xs="row" fxLayoutAlign="space-around center">
@@ -31,7 +34,7 @@
       <img class="icon-picture" src="../../../assets/pictures/web-programming.png" alt="Icon of web programming">
     </div>
   </div>
-  <div class="the-fundamentals section w-100 p-sm" fxLayout="column-reverse" fxLayout.gt-sm="row" fxLayoutAlign="space-around center">
+  <div class="the-fundamentals background-main section w-100 p-sm" fxLayout="column-reverse" fxLayout.gt-sm="row" fxLayoutAlign="space-around center">
     <img class="picture-half-size" src="../../../assets/pictures/magicmouse.jpg" alt="Picture of a computer mouse">
     <div class="fundamentals-text text-box-width">
       <h1 class="mlr-auto">The Fundamentals</h1>

@@ -5,16 +5,59 @@ $section-height: 400px;
 $header-height: 60px;
 
 .main {
-  background-color: white;
   text-align: center;
-}
-
-.home {
   height: 100vh;
   background-image: url('../../../assets/pictures/landing_image.jpg');
   background-position : center bottom;
   background-size: cover;
-	background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  overflow-y: scroll;
+}
+
+.promotion-present {
+  top: 40px !important;
+}
+
+.header {
+  background-color: #FFFFFC;
+  position: absolute;
+  top: 0;
+  -webkit-box-shadow: 0px -2px 15px 5px #000000;
+  box-shadow: 0px -2px 15px 5px #000000;
+}
+
+.top {
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+
+.our-process {
+  background-color: white;
+}
+
+.background-main {
+  background-color: white;
+}
+
+.contents {
+  height: calc(100vh - 250px);
+}
+
+.placeholder {
+  height: 40px;
+  width: 40px;
+}
+
+.banner {
+  background-color: #FB4568;
+  p {
+    font-size: 18px;
+  }
+}
+
+.home {
+  height: 100vh;
 }
 
 .section {

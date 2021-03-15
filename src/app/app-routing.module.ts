@@ -5,6 +5,8 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { LoginComponent } from './components/login/login.component';
 import { EditorComponent } from './components/editor/editor.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
+import { TutorDashboardComponent } from './components/tutor-dashboard/tutor-dashboard.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -12,6 +14,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'editor', component: EditorComponent },
   { path: 'user-dashboard', component: UserDashboardComponent },
+  { path: 'tutor-dashboard', component: TutorDashboardComponent },
+  { path: 'calendar', component: CalendarComponent }
 ];
 
 @NgModule({

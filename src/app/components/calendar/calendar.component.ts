@@ -46,7 +46,7 @@ const colors: any = {
 })
 export class CalendarComponent implements OnInit {
   ngOnInit(): void {
-    throw new Error("Method not implemented.");
+    // throw new Error("Method not implemented.");
   }
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
 

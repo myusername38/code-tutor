@@ -1,0 +1,36 @@
+@import '../user-dashboard.component.scss';
+
+.check {
+  color: #21FA90;
+}
+
+.assignment-box {
+  background: rgb(23,26,42);
+  background: linear-gradient(52deg, rgba(23,26,42,1) 0%, rgba(39,44,67,1) 100%);
+ // background: #282c42;
+  border-radius: 8px;
+  height: 500px;
+  max-width: $dashboard-item-max-width;
+  -webkit-box-shadow: -7px 6px 10px 1px rgba(0,0,0,0.4);
+  box-shadow: -7px 6px 10px 1px rgba(0,0,0,0.4);
+}
+
+.assignment-title {
+  width: 100%;
+  text-align: left;
+}
+
+.in-progress {
+  background-color: $color_1;
+}
+
+.left-icon-box {
+  width: 40px;
+}
+
+.right-icon-box {
+  width: 40px;
+}
+
+
+

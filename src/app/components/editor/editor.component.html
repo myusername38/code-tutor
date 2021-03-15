@@ -1,11 +1,31 @@
-<div
-      class="app-ace-editor"
-      #editor
-      style="width: 800px;height: 500px;"
-    ></div>
-<button (click)="runCode()">Run</button>
-<div class="console">
-  <div *ngFor="let message of consoleMessages">
-      <pre [innerHTML]="message"></pre>
+<div class="main" fxLayout="column" fxLayoutAlign="start center">
+  <mat-toolbar>
+    <h1>Code Tutor</h1>
+    <button class="menu-icon mr-sm ml-auto" mat-icon-button [matMenuTriggerFor]="menu"><mat-icon class="icon">menu</mat-icon></button>
+    <mat-menu #menu="matMenu" xPosition="before">
+      <button mat-menu-item>Editor</button>
+      <button mat-menu-item>Show Prompt</button>
+    </mat-menu>
+  </mat-toolbar>
+  <div class="editor-section w-100 mb-sm pl-sm pr-sm mt-sm" fxLayout="row">
+    <div class="app-ace-editor w-100" #editor ></div>
+    <div class="prompt p-sm ml-sm" fxLayout="column" fxLayoutAlign="space-between center">
+      <div>
+        <h1>Prompt:</h1>
+        <p>{{ prompt }}</p>
+      </div>
+    <button mat-button class="action-button mb-xs mt-auto">Request Help</button>
+    </div>
   </div>
-</div>
+  <div class="w-100 p-sm pt-0">
+    <div class="console w-100 p-sm">
+      <h1>Console:</h1>
+      <div *ngFor="let message of consoleMessages" class="white ml-sm">
+          <pre [innerHTML]="message" class="console-text"></pre>
+      </div>
+    </div>
+  </div>
+
+
+
+<button (click)="runCode()">Run</button>

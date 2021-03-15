@@ -21,6 +21,7 @@ export class EditorComponent implements OnInit, AfterViewInit {
   };
   timeout = 100;
   consoleMessages = [];
+  prompt = 'Write hello world and do a billion backflips';
 
 
   constructor() { }
@@ -49,25 +50,37 @@ export class EditorComponent implements OnInit, AfterViewInit {
 
   runCode() {
     this.consoleMessages = [];
-    const codeInput = this.aceEditor.getValue();
-    const transpiledCode = babel.transform(codeInput, { presets: ['env'], plugins: [this.loopControl], ast: true }).code;
-    try {
-      (new Function(transpiledCode))();
-    } catch (error) {
-      console.error(error)
+    const code = this.aceEditor.getValue();
+    const transpiledCode = babel.transform(code, { presets: ['env'], ast: true }).code;
+    if (typeof Worker !== 'undefined') {
+      // Create a new
+      let ended = false;
+      const worker = new Worker('./code-executor.worker', { type: 'module' });
+      worker.onmessage = ({ data }) => {
+        ended = true;
+        this.consoleMessages = data;
+      };
+      setTimeout(() => {
+          worker.terminate();
+          if (!ended) {
+            this.consoleMessages = ['Function Timed Out'];
+          }
+        }, 1000);
+      worker.postMessage(code);
+    } else {
+      // Web workers are not supported in this environment.
+      // You should add a fallback so that your program still executes correctly.
     }
+
+
   }
 
   setupErrorCatching () {
     const originalError = console.error;
     const originalLog = console.log;
-    const originalWarning = console.warn;
-    const originalInfo = console.info;
-    const originalClear = console.clear;
 
     const add = something => {
       this.consoleMessages.push(something)
-
     }
 
     console.error = function (error) {
@@ -78,64 +91,12 @@ export class EditorComponent implements OnInit, AfterViewInit {
       } else {
         add(arguments[1].toString());
       }
-
-
       originalLog(arguments[1])
-
       originalError.apply(arguments);
-    };
-    console.log = function (...args) {
-      args.forEach(add);
-      originalLog.apply(console, args);
-    };
-    console.warn = function (...args) {
-      args.forEach(add);
-      originalWarning.apply(console, args);
-      originalLog(arguments);
-      console.log('hey4')
-    };
-    console.info = function (...args) {
-      console.log('hey5')
-      args.forEach(add);
-      originalInfo.apply(console, args);
-    };
-    console.clear = function (...args) {
-      this.consoleMessage = '';
-      originalClear.apply(console, args);
     };
   }
 
   add(string) {
     this.consoleMessages.push(string);
-  }
-
-  loopControl(b) {
-    let t = b.types;
-    return {
-       visitor: {
-          WhileStatement: function transformWhile(path) {
-            let variableName = path.scope.generateUidIdentifier('timer');
-            let declaration = t.declareVariable(variableName);
-            path.scope.parent.push(declaration);
-            let definition = t.assignmentExpression(
-              '=',
-              variableName,
-              t.callExpression(t.memberExpression(t.identifier('Date'), t.identifier('now')), [])
-            );
-            path.insertBefore(t.expressionStatement(definition));
-            const lhs = t.parenthesizedExpression(t.binaryExpression('+', variableName, t.NumericLiteral(3000)));
-            path
-              .get('body')
-              .pushContainer(
-                'body',
-                t.ifStatement(
-                  t.binaryExpression('>', t.callExpression(t.memberExpression(t.identifier('Date'), t.identifier('now')), []), lhs),
-                  t.throwStatement(t.stringLiteral('Execution Timedout')),
-                  null
-                )
-              );
-          }
-       }
-    };
   }
 }

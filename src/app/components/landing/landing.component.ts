@@ -9,13 +9,15 @@ import { Router } from '@angular/router';
 })
 export class LandingComponent implements OnInit {
 
+  promotion = true;
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  toggleMobileMenu() {
-
+  togglePromotion() {
+    this.promotion = false;
   }
 
   login() {
