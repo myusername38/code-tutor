@@ -6,12 +6,26 @@ $header-height: 60px;
 
 .main {
   text-align: center;
-  height: 100vh;
-  background-image: url('../../../assets/pictures/landing_image.jpg');
-  background-position : center bottom;
-  background-size: cover;
-  background-repeat: no-repeat;
-  overflow-y: scroll;
+
+  margin-top: 60px;
+  &.promotion-top {
+    margin-top: 100px;
+  }
+}
+
+.program-icon-box {
+  max-width: 300px;
+  .icon {
+    width: 70px;
+    height: auto;
+  }
+}
+
+.info {
+  z-index: 5;
+  .container {
+
+  };
 }
 
 .promotion-present {
@@ -20,16 +34,18 @@ $header-height: 60px;
 
 .header {
   background-color: #FFFFFC;
-  position: absolute;
+  position: fixed;
   top: 0;
+  z-index: 99;
   -webkit-box-shadow: 0px -2px 15px 5px #000000;
   box-shadow: 0px -2px 15px 5px #000000;
 }
 
+
 .top {
   position: fixed;
   top: 0;
-  z-index: 99;
+  z-index: 5;
 }
 
 .our-process {
@@ -37,11 +53,21 @@ $header-height: 60px;
 }
 
 .background-main {
+  background-color: #f2efea;
+}
+
+.info-tile {
   background-color: white;
+  border-radius: 4px;
+  max-width: 300px;
+  .info-tile-picture {
+    width: 250px;
+    border-radius: 4px;
+  }
 }
 
 .contents {
-  height: calc(100vh - 250px);
+  height: 600px !important;
 }
 
 .placeholder {
@@ -49,7 +75,16 @@ $header-height: 60px;
   width: 40px;
 }
 
+.top-dialog {
+  background: white;
+  border-radius: 4px;
+  max-width: 600px;
+  position: absolute;
+  z-index: 0;
+}
+
 .banner {
+  z-index: 100;
   background-color: #FB4568;
   p {
     font-size: 18px;
@@ -60,12 +95,41 @@ $header-height: 60px;
   height: 100vh;
 }
 
+.tiles-container {
+  max-width: 1200px;
+}
+
+.course-tiles {
+  background-position : center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-width: 300px;
+  min-height: 400px;
+  border-radius: 4px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../../../assets/icon_pictures/java_background.jpg");
+  .icon {
+    width: 150px;
+  }
+  .icon-container {
+    height: 150px;
+  }
+}
+
 .section {
+  z-index: 1;
   min-height: $section-height;
+  &.top-section {
+    min-height: calc(100vh - 200px);
+    background-image: url('../../../assets/pictures/landing_image.jpg');
+    background-position : center bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 }
 
 .icon-section {
   background-color: #EAD7D1;
+  z-index: 1;
   .icon-picture {
     height: 80px;
   }

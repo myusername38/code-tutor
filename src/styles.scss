@@ -79,12 +79,12 @@
   text-align: center;
 }
 
+.primary { background-color: $primary !important; }
+.accent { background-color: $accent !important; }
+.warn { background-color: $warn !important; }
+
 .white {
   color: white;
-}
-
-.limit-width {
-  max-width: $content-max-width !important;
 }
 
 .ellipsis {
@@ -121,6 +121,12 @@
   -o-animation: fadein 1s; /* Opera < 12.1 */
   animation: fadein 1s;
 }
+
+.shaddow {
+  -webkit-box-shadow: -7px 6px 10px 1px rgba(0,0,0,0.4);
+  box-shadow: -7px 6px 10px 1px rgba(0,0,0,0.4);
+}
+
 @keyframes fadein {
   from { opacity: 0; }
   to   { opacity: 1; }

@@ -1,4 +1,4 @@
-<div class="main w-100" fxLayout="column">
+<div class="main w-100" [class.promotion-top]="promotion" fxLayout="column">
   <div class="banner top w-100 white pl-sm pr-sm" fxLayout="row" fxLayoutAlign="space-between center" *ngIf="promotion">
     <div class="placeholder"></div>
     <p class="mb-0 mt-0">Click Here for 50% off!</p>
@@ -19,12 +19,34 @@
       <button mat-button class="login-button" (click)="login()">Login</button>
     </div>
   </div>
-  <div class="contents">
-
+  <div class="section top-section w-100 p-sm" fxLayoutAlign="center center">
+    <div class="top-dialog fade-in-slow shaddow p-sm">
+      <h1 class="mlr-auto">Learn from experts</h1>
+      <p class="m">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+      <div class="program-icon-box w-100 mlr-auto mb-sm" fxLayoutAlign="space-between center">
+        <img class="icon" src="../../../assets/logos/java_logo.png"/>
+        <img class="icon" src="../../../assets/logos/javascript_logo.png"/>
+        <img class="icon" src="../../../assets/logos/scratch_logo.png"/>
+      </div>
+      <button mat-raised-button class="warn white">1 on 1 Tutoring</button>
+    </div>
   </div>
-  <div class="section w-100 p-sm" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="space-around center">
-    <div class="promotion-card" fxLayoutAlign="column">
-
+  <div class="info background-main w-100 p-sm pt-md pb-md" fxLayout="column" fxLayoutAlign="start center">
+    <h1>Get 1 on 1 Tutoring in Hot Skills</h1>
+    <p>Our tutors are experts in these fields and will bring them success</p>
+    <div class="tiles-container w-100" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="space-around center">
+      <div class="course-tiles p-sm w-100 mt-sm mb-sm" *ngFor="let course of courses" fxLayout="column" fxLayout.gt-sm="row" [ngStyle]="{'background-image': 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + course.img + ')'}">
+        <div class="white w-100">
+          <h1 class="mlr-auto mb-xl mt-sm">{{ course.title }}</h1>
+          <div class="icon-container mlr-auto mt-xl mb-xl" fxLayoutAlign="center center">
+            <img class="mlr-auto icon" src="{{ course.icon }}">
+          </div>
+          <div class="w-100 mt-xl" fxLayout="row" fxLayoutAlign="space-around center">
+            <p>Ages: {{ course.ages }}</p>
+            <p>{{ course.difficulty }}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="icon-section w-100" fxLayout="column" fxLayoutAlign="center center">
@@ -34,13 +56,13 @@
       <img class="icon-picture" src="../../../assets/pictures/web-programming.png" alt="Icon of web programming">
     </div>
   </div>
-  <div class="the-fundamentals background-main section w-100 p-sm" fxLayout="column-reverse" fxLayout.gt-sm="row" fxLayoutAlign="space-around center">
-    <img class="picture-half-size" src="../../../assets/pictures/magicmouse.jpg" alt="Picture of a computer mouse">
-    <div class="fundamentals-text text-box-width">
-      <h1 class="mlr-auto">The Fundamentals</h1>
-      <p>We believe in teaching the fundamentals that power the online world today.
-         These fundamentals will aid in college and in the workplace
-      </p>
+  <div class="info background-main w-100 p-sm pt-md pb-md">
+    <div class="container w-100" fxLayout="column-reverse" fxLayout.gt-sm="row" fxLayoutAlign="space-around center">
+      <div class="info-tile shaddow p-sm mb-sm mt-sm" *ngFor="let r of repeats">
+        <img class="info-tile-picture mb-sm" src="../../../assets/pictures/tutor.jpg">
+        <h1 class="mlr-auto">Our Tutors{{r}}</h1>
+        <p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1</p>
+      </div>
     </div>
   </div>
   <div class="about-us section" fxLayout="column" fxLayout.gt-xs="row" fxLayoutAlign="space-around center">
